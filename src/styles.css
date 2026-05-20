@@ -152,4 +152,14 @@
   .shadow-accent { box-shadow: var(--shadow-accent); }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .event-map-container {
+    z-index: 0;
+  }
+  .event-map-container .leaflet-pane,
+  .event-map-container .leaflet-top,
+  .event-map-container .leaflet-bottom,
+  .event-map-container .leaflet-control,
+  .event-map-container .leaflet-popup {
+    z-index: 0;
+  }
 }
