@@ -271,7 +271,7 @@ export function EventMapSection({
                     center={[userLocation.lat, userLocation.lng]}
                     zoom={12}
                     scrollWheelZoom
-                    className={`event-map-container ${mapOnly ? "h-[58vh] min-h-[420px] md:h-[72vh] md:min-h-[560px]" : "h-[360px] md:h-[520px]"} w-full`}
+                    className={`event-map-container ${mapOnly ? "h-[58vh] min-h-[420px] md:h-[72vh] md:min-h-[560px]" : "h-[360px] min-h-[360px] md:h-[520px] md:min-h-[520px]"} w-full`}
                   >
                     <TileLayer
                       attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'

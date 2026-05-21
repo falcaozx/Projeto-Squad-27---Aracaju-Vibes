@@ -51,7 +51,7 @@ export function Navbar() {
                     {active && (
                       <motion.span
                         layoutId="nav-pill"
-                        className="absolute inset-0 -z-10 rounded-xl bg-gradient-primary shadow-soft"
+                        className="absolute inset-0 -z-10 rounded-xl bg-gradient-primary shadow-glow ring-1 ring-white/20 saturate-150"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}

@@ -154,6 +154,14 @@
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   .event-map-container {
     z-index: 0;
+    display: block;
+    background: color-mix(in oklab, var(--surface-elevated) 92%, white);
+  }
+  .event-map-container .leaflet-container,
+  .event-map-container.leaflet-container {
+    width: 100%;
+    height: 100%;
+    background: color-mix(in oklab, var(--surface-elevated) 92%, white);
   }
   .event-map-container .leaflet-pane,
   .event-map-container .leaflet-top,

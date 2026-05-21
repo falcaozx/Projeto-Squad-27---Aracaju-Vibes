@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import arcosOrlaHero from "../../assests/image copy 3.png";
 import {
   ArrowRight,
   MapPin,
@@ -12,7 +13,7 @@ import {
 import { EventMapSection } from "@/components/site/EventMapSection";
 import { Layout } from "@/components/site/Layout";
 import { PlaceCard } from "@/components/site/PlaceCard";
-import { attractions, highlights, images } from "@/data";
+import { attractions, highlights } from "@/data";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -41,8 +42,8 @@ function Index() {
       <section className="relative px-4 pt-4 md:pt-6">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] shadow-elevated md:rounded-[2.5rem]">
           <img
-            src={images.heroOrla}
-            alt="Orla de Atalaia ao por do sol"
+            src={arcosOrlaHero}
+            alt="Arcos da Orla de Aracaju"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-hero" />
