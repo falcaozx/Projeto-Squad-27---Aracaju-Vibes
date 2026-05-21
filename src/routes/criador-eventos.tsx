@@ -11,7 +11,7 @@ export const Route = createFileRoute("/criador-eventos")({
       {
         name: "description",
         content:
-          "Crie, edite e publique eventos em Aracaju com dashboard responsiva, formularios validados e integracao com o mapa.",
+          "Crie, edite e publique eventos em Aracaju com dashboard responsiva, formulários validados e integração com o mapa.",
       },
     ],
   }),
@@ -21,9 +21,9 @@ function EventCreatorPage() {
   return (
     <Layout>
       <PageHeader
-        eyebrow="Area do criador"
+        eyebrow="Área do criador"
         title="Dashboard do Promotor"
-        description="Uma operacao completa para criar, editar e excluir eventos sem sair do ecossistema visual ja existente."
+        description="Uma operação completa para criar, editar e excluir eventos sem sair do ecossistema visual já existente."
       />
       <EventCreatorDashboard />
     </Layout>

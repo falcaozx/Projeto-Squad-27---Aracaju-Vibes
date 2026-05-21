@@ -16,7 +16,7 @@ export const Route = createFileRoute("/conta")({
       { title: "Minha Conta - Aracaju Turismo" },
       {
         name: "description",
-        content: "Dashboard do usuario com area pessoal e espaco de organizador para criacao e gestao de eventos.",
+        content: "Dashboard do usuário com área pessoal e espaço de organizador para criação e gestão de eventos.",
       },
     ],
   }),
@@ -52,8 +52,8 @@ function AccountPage() {
     <Layout>
       <PageHeader
         eyebrow="Minha conta"
-        title={`Ola, ${user.name}`}
-        description="Seu dashboard reune perfil, ingressos e, se voce for organizador, tambem a operacao dos seus eventos."
+        title={`Olá, ${user.name}`}
+        description="Seu dashboard reúne perfil, ingressos e, se você for organizador, também a operação dos seus eventos."
       />
 
       <section className="mx-auto mt-10 max-w-7xl px-4">
@@ -79,7 +79,7 @@ function AccountPage() {
                 </div>
                 <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">{user.email}</h2>
                 <p className="mt-2 max-w-2xl text-sm text-white/82">
-                  Aqui voce acompanha sua area pessoal e, quando aplicavel, gerencia eventos criados por voce.
+                  Aqui você acompanha sua área pessoal e, quando aplicável, gerencia eventos criados por você.
                 </p>
               </div>
 
@@ -134,7 +134,7 @@ function AccountPage() {
             </div>
 
             <div className="rounded-[1.5rem] bg-secondary/55 p-5">
-              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Criacao</div>
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Criação</div>
               <div className="mt-3 flex items-center gap-3">
                 <div className="grid h-12 w-12 place-items-center rounded-2xl bg-card text-primary shadow-soft">
                   <CalendarClock className="h-5 w-5" />

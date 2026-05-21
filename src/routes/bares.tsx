@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Music } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { PlaceCard } from "@/components/site/PlaceCard";
 import { bars } from "@/data";
-import { Music } from "lucide-react";
 
 export const Route = createFileRoute("/bares")({
   component: BarsPage,
@@ -24,25 +24,25 @@ function BarsPage() {
         description="Da brisa da Orla à boemia do centro, os melhores endereços para começar — ou terminar — a noite."
       />
 
-      <section className="mx-auto max-w-7xl px-4 mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {bars.map((b) => (
+      <section className="mx-auto mt-10 grid max-w-7xl gap-5 px-4 sm:grid-cols-2 lg:grid-cols-3">
+        {bars.map((bar) => (
           <PlaceCard
-            key={b.id}
-            id={b.id}
-            title={b.name}
-            subtitle={b.cuisine}
-            image={b.image}
-            rating={b.rating}
-            address={b.address}
-            hours={b.hours}
-            badge={b.liveMusic ? "🎵 Música ao vivo" : "Coquetelaria"}
-            coords={b.coords}
+            key={bar.id}
+            id={bar.id}
+            title={bar.name}
+            subtitle={bar.cuisine}
+            image={bar.image}
+            rating={bar.rating}
+            address={bar.address}
+            hours={bar.hours}
+            badge={bar.liveMusic ? "Música ao vivo" : "Coquetelaria"}
+            coords={bar.coords}
           />
         ))}
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 mt-16">
-        <div className="rounded-3xl bg-secondary p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-6 justify-between">
+      <section className="mx-auto mt-16 max-w-7xl px-4">
+        <div className="flex flex-col items-start justify-between gap-6 rounded-3xl bg-secondary p-8 md:flex-row md:items-center md:p-12">
           <div className="flex items-center gap-4">
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-primary shadow-glow">
               <Music className="h-5 w-5 text-primary-foreground" />
@@ -52,7 +52,10 @@ function BarsPage() {
               <p className="text-sm text-muted-foreground">Veja os shows da semana e garanta seu ingresso.</p>
             </div>
           </div>
-          <a href="/shows" className="rounded-xl bg-gradient-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-accent">
+          <a
+            href="/shows"
+            className="rounded-xl bg-gradient-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-accent"
+          >
             Ver agenda
           </a>
         </div>

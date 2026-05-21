@@ -11,7 +11,7 @@ import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { events as seedEvents } from "@/data";
 
-export type EventCategory = "Forro" | "Sertanejo" | "Pagode" | "Eletronica" | "Festival";
+export type EventCategory = "Forró" | "Sertanejo" | "Pagode" | "Eletrônica" | "Festival";
 
 export type ManagedEvent = {
   id: string;
@@ -46,10 +46,10 @@ const ARACAJU_CENTER = { lat: -10.9472, lng: -37.0731 };
 const STORAGE_KEY = "aracaju-promoter-events";
 
 const categoryLabels: Record<EventCategory, string> = {
-  Forro: "Forro",
+  "Forró": "Forró",
   Sertanejo: "Sertanejo",
   Pagode: "Pagode",
-  Eletronica: "Eletronica",
+  "Eletrônica": "Eletrônica",
   Festival: "Festival",
 };
 
@@ -57,7 +57,7 @@ const eventMetadata: Record<string, Partial<ManagedEvent>> = {
   e1: {
     date: "2026-06-14",
     description:
-      "Uma noite de forro contemporaneo com atmosfera regional, setores premium e ativações gastronomicas.",
+      "Uma noite de forró contemporâneo com atmosfera regional, setores premium e ativações gastronômicas.",
     address: "Av. Tancredo Neves, Centro de Eventos de Sergipe",
     ticketsTotal: 1400,
     ticketsSold: 920,
@@ -65,7 +65,7 @@ const eventMetadata: Record<string, Partial<ManagedEvent>> = {
   e2: {
     date: "2026-06-20",
     description:
-      "Festival ao ar livre na orla com palco principal, feira criativa e experiencia completa de Sao Joao.",
+      "Festival ao ar livre na orla com palco principal, feira criativa e experiência completa de São João.",
     address: "Orla de Atalaia, Aracaju",
     ticketsTotal: 4000,
     ticketsSold: 2600,
@@ -73,15 +73,15 @@ const eventMetadata: Record<string, Partial<ManagedEvent>> = {
   e3: {
     date: "2026-07-05",
     description:
-      "Show sertanejo em formato arena, com lounges laterais, bares tematicos e operacao de ingresso digital.",
-    address: "Av. Adelia Franco, Arena Batistao",
+      "Show sertanejo em formato arena, com lounges laterais, bares temáticos e operação de ingresso digital.",
+    address: "Av. Adélia Franco, Arena Batistão",
     ticketsTotal: 2400,
     ticketsSold: 1260,
   },
   e4: {
     date: "2026-07-12",
     description:
-      "Evento sunset com pagode na faixa litoranea, lounges, ativações de marca e food trucks curados.",
+      "Evento sunset com pagode na faixa litorânea, lounges, ativações de marca e food trucks curados.",
     address: "Atalaia Sul, Beach Stage",
     ticketsTotal: 1800,
     ticketsSold: 980,
@@ -89,7 +89,7 @@ const eventMetadata: Record<string, Partial<ManagedEvent>> = {
   e5: {
     date: "2026-07-26",
     description:
-      "Experiencia noturna de musica eletronica com cenografia imersiva, open area e setores com vista frontal.",
+      "Experiência noturna de música eletrônica com cenografia imersiva, open area e setores com vista frontal.",
     address: "Hangar Sergipe, Aracaju",
     ticketsTotal: 2200,
     ticketsSold: 1175,
@@ -105,8 +105,8 @@ function normalizeCategory(value: string): EventCategory {
   if (normalized.includes("festival")) return "Festival";
   if (normalized.includes("sertanejo")) return "Sertanejo";
   if (normalized.includes("pagode")) return "Pagode";
-  if (normalized.includes("eletron")) return "Eletronica";
-  return "Forro";
+  if (normalized.includes("eletron")) return "Eletrônica";
+  return "Forró";
 }
 
 function buildSeedEvents(): ManagedEvent[] {
@@ -119,7 +119,7 @@ function buildSeedEvents(): ManagedEvent[] {
       artist: event.artist,
       description:
         metadata.description ??
-        "Evento especial em Aracaju com operacao completa de ingressos, mapa e destaque visual dentro da plataforma.",
+        "Evento especial em Aracaju com operação completa de ingressos, mapa e destaque visual dentro da plataforma.",
       category: normalizeCategory(event.category),
       date: metadata.date ?? "2026-06-01",
       time: event.time,

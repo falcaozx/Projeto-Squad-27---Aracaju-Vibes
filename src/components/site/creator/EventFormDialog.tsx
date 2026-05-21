@@ -33,15 +33,15 @@ import { getCategoryLabel, type EventCategory, type EventDraft, type ManagedEven
 
 const eventFormSchema = z.object({
   title: z.string().min(3, "Informe um nome com pelo menos 3 caracteres."),
-  artist: z.string().min(2, "Informe a atracao principal."),
-  description: z.string().min(20, "Descreva melhor o evento para o publico."),
-  category: z.enum(["Forro", "Sertanejo", "Pagode", "Eletronica", "Festival"]),
+  artist: z.string().min(2, "Informe a atração principal."),
+  description: z.string().min(20, "Descreva melhor o evento para o público."),
+  category: z.enum(["Forró", "Sertanejo", "Pagode", "Eletrônica", "Festival"]),
   date: z.string().min(1, "Selecione a data do evento."),
-  time: z.string().min(1, "Informe o horario."),
+  time: z.string().min(1, "Informe o horário."),
   venue: z.string().min(3, "Informe o local do evento."),
-  address: z.string().min(6, "Informe um endereco mais completo."),
+  address: z.string().min(6, "Informe um endereço mais completo."),
   city: z.string().min(2, "Informe a cidade."),
-  price: z.coerce.number().min(0, "O preco nao pode ser negativo."),
+  price: z.coerce.number().min(0, "O preço não pode ser negativo."),
   ticketsTotal: z.coerce.number().int().min(1, "Adicione pelo menos 1 ingresso."),
   image: z.string().min(1, "Adicione um banner ou imagem para o evento."),
   lat: z.coerce.number().min(-90).max(90),
@@ -50,14 +50,14 @@ const eventFormSchema = z.object({
 
 type EventFormValues = z.infer<typeof eventFormSchema>;
 
-const categories: EventCategory[] = ["Forro", "Festival", "Pagode", "Sertanejo", "Eletronica"];
+const categories: EventCategory[] = ["Forró", "Festival", "Pagode", "Sertanejo", "Eletrônica"];
 
 function getDefaultValues(event?: ManagedEvent): EventFormValues {
   return {
     title: event?.title ?? "",
     artist: event?.artist ?? "",
     description: event?.description ?? "",
-    category: event?.category ?? "Forro",
+    category: event?.category ?? "Forró",
     date: event?.date ?? "",
     time: event?.time ?? "",
     venue: event?.venue ?? "",
@@ -144,7 +144,7 @@ export function EventFormDialog({
                 {initialEvent ? "Editar evento" : "Novo evento"}
               </DialogTitle>
               <DialogDescription className="text-white/80">
-                Monte o evento completo com visual, capacidade, localizacao e informacoes para a agenda e o mapa.
+                Monte o evento completo com visual, capacidade, localização e informações para a agenda e o mapa.
               </DialogDescription>
             </DialogHeader>
 
@@ -194,7 +194,7 @@ export function EventFormDialog({
                     name="artist"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Atracao principal</FormLabel>
+                        <FormLabel>Atração principal</FormLabel>
                         <FormControl>
                           <Input {...field} className="h-11 rounded-xl" placeholder="Nome do artista ou headline" />
                         </FormControl>
@@ -233,7 +233,7 @@ export function EventFormDialog({
                     name="description"
                     render={({ field }) => (
                       <FormItem className="md:col-span-2">
-                        <FormLabel>Descricao</FormLabel>
+                        <FormLabel>Descrição</FormLabel>
                         <FormControl>
                           <Textarea
                             {...field}
@@ -265,7 +265,7 @@ export function EventFormDialog({
                     name="time"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Horario</FormLabel>
+                        <FormLabel>Horário</FormLabel>
                         <FormControl>
                           <Input {...field} type="time" className="h-11 rounded-xl" />
                         </FormControl>
@@ -307,9 +307,9 @@ export function EventFormDialog({
                     name="address"
                     render={({ field }) => (
                       <FormItem className="md:col-span-2">
-                        <FormLabel>Localizacao</FormLabel>
+                        <FormLabel>Localização</FormLabel>
                         <FormControl>
-                          <Input {...field} className="h-11 rounded-xl" placeholder="Endereco completo para mapa e agenda" />
+                          <Input {...field} className="h-11 rounded-xl" placeholder="Endereço completo para mapa e agenda" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -383,7 +383,7 @@ export function EventFormDialog({
                     name="price"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Preco</FormLabel>
+                        <FormLabel>Preço</FormLabel>
                         <FormControl>
                           <Input {...field} type="number" min={0} step="1" className="h-11 rounded-xl" />
                         </FormControl>
@@ -426,7 +426,7 @@ export function EventFormDialog({
                     Cancelar
                   </Button>
                   <Button type="submit" className="rounded-xl bg-gradient-primary text-primary-foreground shadow-glow hover:opacity-95">
-                    {initialEvent ? "Salvar alteracoes" : "Criar evento"}
+                    {initialEvent ? "Salvar alterações" : "Criar evento"}
                   </Button>
                 </div>
               </form>

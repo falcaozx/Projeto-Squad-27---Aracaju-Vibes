@@ -19,11 +19,11 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Aracaju Turismo - Praias, Cultura e Experiencias em Sergipe" },
+      { title: "Aracaju Turismo - Praias, Cultura e Experiências em Sergipe" },
       {
         name: "description",
         content:
-          "Tudo o que voce precisa para viver Aracaju como ninguem. Descubra praias, restaurantes e os melhores shows.",
+          "Tudo o que você precisa para viver Aracaju como ninguém. Descubra praias, restaurantes e os melhores shows.",
       },
     ],
   }),
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
 const quick = [
   { to: "/praias", label: "Praias", icon: Waves },
   { to: "/restaurantes", label: "Gastronomia", icon: UtensilsCrossed },
-  { to: "/pontos-turisticos", label: "Pontos turisticos", icon: MapPin },
+  { to: "/pontos-turisticos", label: "Pontos turísticos", icon: MapPin },
   { to: "/shows", label: "Shows", icon: Ticket },
 ] as const;
 
@@ -67,7 +67,7 @@ function Index() {
                 .
               </h1>
               <p className="mt-5 max-w-xl text-base text-white/85 md:text-lg">
-                Roteiros, gastronomia e cultura em um so lugar. As melhores experiencias de Sergipe a distancia de um clique.
+                Roteiros, gastronomia e cultura em um só lugar. As melhores experiências de Sergipe a distância de um clique.
               </p>
 
               <motion.form
@@ -111,7 +111,7 @@ function Index() {
       <EventMapSection
         compact
         title="Mapa vivo de eventos pela cidade"
-        description="A descoberta por localizacao agora fica em destaque na experiencia principal, com mapa responsivo, eventos proximos e filtros inteligentes."
+        description="A descoberta por localização agora fica em destaque na experiência principal, com mapa responsivo, eventos próximos e filtros inteligentes."
       />
 
       <section className="mx-auto mt-20 max-w-7xl px-4 md:mt-28">
@@ -119,7 +119,7 @@ function Index() {
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Em destaque</span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-5xl">
-              Experiencias <span className="text-gradient">imperdiveis</span>
+              Experiências <span className="text-gradient">imperdíveis</span>
             </h2>
           </div>
           <Link
@@ -146,7 +146,7 @@ function Index() {
 
       <section className="mx-auto mt-20 max-w-7xl px-4 md:mt-28">
         <div className="mb-8">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Recomendado para voce</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Recomendado para você</span>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-5xl">
             Mais amados <span className="text-gradient">pelos viajantes</span>
           </h2>
@@ -182,13 +182,13 @@ function Index() {
                 to="/login"
                 className="inline-flex items-center gap-2 rounded-xl bg-white/95 px-6 py-3 font-semibold text-primary-deep shadow-soft transition-colors hover:bg-white"
               >
-                Criar conta gratis <ArrowRight className="h-4 w-4" />
+                Criar conta grátis <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/criador-eventos"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/15"
               >
-                Area do promotor <MapPin className="h-4 w-4" />
+                Área do promotor <MapPin className="h-4 w-4" />
               </Link>
             </div>
           </div>

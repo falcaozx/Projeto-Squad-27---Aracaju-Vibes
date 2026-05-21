@@ -157,10 +157,10 @@ export function EventCreatorDashboard() {
                   <CalendarClock className="h-3.5 w-3.5" /> Painel do promotor
                 </span>
                 <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-5xl">
-                  Dashboard completa para criar, operar e acompanhar eventos.
+                  Dashboard completo para criar, operar e acompanhar eventos.
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm text-white/84 md:text-base">
-                  Gerencie agenda, capacidade, imagem, localizacao e precificacao sem sair do padrao visual do produto.
+                  Gerencie agenda, capacidade, imagem, localização e precificação sem sair do padrão visual do produto.
                 </p>
               </div>
 
@@ -179,7 +179,7 @@ export function EventCreatorDashboard() {
           <div className="grid gap-4 p-6 md:grid-cols-2 xl:grid-cols-4">
             <MetricCard label="Eventos ativos" value={String(upcomingEvents.length)} icon={CalendarClock} />
             <MetricCard label="Ingressos vendidos" value={String(soldTickets)} icon={Ticket} />
-            <MetricCard label="Disponiveis" value={String(remainingTickets)} icon={Wallet} />
+            <MetricCard label="Disponíveis" value={String(remainingTickets)} icon={Wallet} />
             <MetricCard label="Receita potencial" value={formatEventPrice(projectedRevenue)} icon={MapPinned} />
           </div>
         </div>
@@ -189,13 +189,13 @@ export function EventCreatorDashboard() {
         <Tabs defaultValue="upcoming">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <h3 className="text-2xl font-bold tracking-tight">Operacao de eventos</h3>
+              <h3 className="text-2xl font-bold tracking-tight">Operação de eventos</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Edite rapidamente os cards ja publicados, mantenha lotes e atualize dados do mapa.
+                Edite rapidamente os cards já publicados, mantenha lotes e atualize dados do mapa.
               </p>
             </div>
             <TabsList className="h-11 rounded-xl bg-secondary p-1">
-              <TabsTrigger className="rounded-lg px-4" value="upcoming">Proximos</TabsTrigger>
+              <TabsTrigger className="rounded-lg px-4" value="upcoming">Próximos</TabsTrigger>
               <TabsTrigger className="rounded-lg px-4" value="all">Todos</TabsTrigger>
             </TabsList>
           </div>
@@ -253,7 +253,7 @@ export function EventCreatorDashboard() {
             <AlertDialogTitle>Excluir evento</AlertDialogTitle>
             <AlertDialogDescription>
               {eventToDelete
-                ? `Voce esta removendo "${eventToDelete.title}" da agenda e do mapa de eventos proximos.`
+                ? `Você está removendo "${eventToDelete.title}" da agenda e do mapa de eventos próximos.`
                 : ""}
             </AlertDialogDescription>
           </AlertDialogHeader>

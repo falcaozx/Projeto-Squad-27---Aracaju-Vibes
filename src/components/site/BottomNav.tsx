@@ -4,7 +4,7 @@ import { Home, Map, Ticket, User, UtensilsCrossed, Waves } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 
 const tabs = [
-  { to: "/", label: "Inicio", icon: Home },
+  { to: "/", label: "Início", icon: Home },
   { to: "/restaurantes", label: "Comer", icon: UtensilsCrossed },
   { to: "/praias", label: "Praias", icon: Waves },
   { to: "/shows", label: "Shows", icon: Ticket },

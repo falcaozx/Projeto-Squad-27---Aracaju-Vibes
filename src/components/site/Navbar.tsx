@@ -4,11 +4,11 @@ import { Heart, MapPin, User } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 
 const links = [
-  { to: "/", label: "Inicio" },
+  { to: "/", label: "Início" },
   { to: "/restaurantes", label: "Restaurantes" },
   { to: "/bares", label: "Bares" },
   { to: "/praias", label: "Praias" },
-  { to: "/pontos-turisticos", label: "Pontos Turisticos" },
+  { to: "/pontos-turisticos", label: "Pontos Turísticos" },
   { to: "/shows", label: "Shows" },
   { to: "/mapa", label: "Mapa" },
 ] as const;
@@ -51,11 +51,11 @@ export function Navbar() {
                     {active && (
                       <motion.span
                         layoutId="nav-pill"
-                        className="absolute inset-0 -z-10 rounded-xl bg-gradient-primary shadow-glow ring-1 ring-white/20 saturate-150"
+                        className="absolute inset-0 -z-10 rounded-xl bg-primary shadow-glow ring-1 ring-primary-glow/35"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
-                    <span className={active ? "text-primary-foreground" : ""}>{link.label}</span>
+                    <span className={active ? "text-white opacity-100" : ""}>{link.label}</span>
                   </Link>
                 </li>
               );

@@ -68,7 +68,7 @@ export function PlaceCard(p: PlaceCardProps) {
         <h3 className="text-base font-bold tracking-tight">{p.title}</h3>
         {p.subtitle && <p className="mt-0.5 text-xs text-muted-foreground">{p.subtitle}</p>}
         {(p.address || p.hours) && (
-          <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground">
+          <div className="mt-3 space-y-2 text-xs text-muted-foreground">
             {p.address && (
               <button 
                 onClick={(e) => {
@@ -78,15 +78,20 @@ export function PlaceCard(p: PlaceCardProps) {
                     setIsMapOpen(true);
                   }
                 }}
-                className={`inline-flex items-center gap-1 text-left ${p.coords ? "hover:text-accent transition-colors" : ""}`}
+                className={`flex w-full items-start gap-2 text-left leading-relaxed ${p.coords ? "hover:text-accent transition-colors" : ""}`}
               >
-                <MapPin className="h-3 w-3 shrink-0" />
+                <MapPin className="mt-0.5 h-3 w-3 shrink-0" />
                 <span className={p.coords ? "underline decoration-accent/30 underline-offset-2" : ""}>
                   {p.address}
                 </span>
               </button>
             )}
-            {p.hours && <span className="inline-flex items-center gap-1"><Clock className="h-3 w-3 shrink-0" />{p.hours}</span>}
+            {p.hours && (
+              <div className="flex items-start gap-2 leading-relaxed">
+                <Clock className="mt-0.5 h-3 w-3 shrink-0" />
+                <span>{p.hours}</span>
+              </div>
+            )}
           </div>
         )}
       </div>

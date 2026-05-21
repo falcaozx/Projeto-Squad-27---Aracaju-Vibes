@@ -20,7 +20,7 @@ export const Route = createFileRoute("/shows")({
       {
         name: "description",
         content:
-          "Forro, sertanejo, pagode e festivais em Aracaju. Compre ingressos com QR Code dinamico.",
+          "Forró, sertanejo, pagode e festivais em Aracaju. Compre ingressos com QR Code dinâmico.",
       },
     ],
   }),
@@ -39,7 +39,7 @@ function ShowsPage() {
       <PageHeader
         eyebrow="Hub de entretenimento"
         title="Shows & Eventos"
-        description="A agenda cultural de Aracaju em tempo real. Reserve seu lugar nos melhores espetaculos da capital."
+        description="A agenda cultural de Aracaju em tempo real. Reserve seu lugar nos melhores espetáculos da capital."
       />
 
       <section className="mx-auto mt-10 grid max-w-7xl gap-5 px-4 md:grid-cols-2">

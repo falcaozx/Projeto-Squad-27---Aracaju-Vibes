@@ -31,7 +31,7 @@ function LoginPage() {
     }
 
     signUp({
-      name: name || "Novo usuario",
+      name: name || "Novo usuário",
       email: email || "visitante@aju.com",
       password,
       isOrganizer,
@@ -58,7 +58,7 @@ function LoginPage() {
             <p className="mt-1 text-sm text-muted-foreground">
               {mode === "login"
                 ? "Digite qualquer e-mail e senha para entrar no dashboard normal."
-                : "Cadastre uma conta pessoal e marque se voce tambem organiza eventos."}
+                : "Cadastre uma conta pessoal e marque se você também organiza eventos."}
             </p>
           </div>
 
@@ -133,7 +133,7 @@ function LoginPage() {
                       Sou organizador ou criador de eventos
                     </Label>
                     <p className="text-xs text-muted-foreground">
-                      Se marcar esta opcao, sua conta entra no dashboard pessoal e tambem ganha a area de criacao e edicao de eventos.
+                      Se marcar esta opção, sua conta entra no dashboard pessoal e também ganha a área de criação e edição de eventos.
                     </p>
                   </div>
                 </div>
@@ -146,7 +146,7 @@ function LoginPage() {
           </form>
 
           <p className="mt-6 text-center text-xs text-muted-foreground">
-            Ao continuar, voce aceita os <Link to="/" className="font-semibold text-primary">Termos</Link>.
+            Ao continuar, você aceita os <Link to="/" className="font-semibold text-primary">Termos</Link>.
           </p>
         </motion.div>
       </div>
