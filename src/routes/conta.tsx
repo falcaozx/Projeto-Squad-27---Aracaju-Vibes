@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { CalendarClock, Heart, LogOut, ShieldCheck, Ticket, UserRound } from "lucide-react";
+import { CalendarClock, Heart, LogOut, ShieldCheck, Ticket, UserRound, UtensilsCrossed, Waves } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
 import { EventCreatorDashboard } from "@/components/site/creator/EventCreatorDashboard";
 import { Badge } from "@/components/ui/badge";
@@ -150,6 +150,60 @@ function AccountPage() {
           </div>
         </motion.div>
       </section>
+
+      {!user.isOrganizer && (
+        <section className="mx-auto mt-8 max-w-7xl px-4">
+          <div className="rounded-[2rem] bg-card p-6 shadow-soft md:p-8">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">
+                Descubra Aracaju
+              </span>
+              <h2 className="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
+                Aproveite sua conta para conhecer o melhor do turismo local.
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground md:text-base">
+                Explore as praias mais queridas da cidade e descubra restaurantes que fazem a experiência em Aracaju ficar ainda melhor.
+              </p>
+            </div>
+
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <Link
+                to="/praias"
+                className="group rounded-[1.5rem] bg-secondary/55 p-5 transition-all hover:bg-secondary/75"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-card text-primary shadow-soft">
+                    <Waves className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold">Praias de Aracaju</div>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Veja opções para relaxar, caminhar na orla e aproveitar o litoral sergipano.
+                    </p>
+                  </div>
+                </div>
+              </Link>
+
+              <Link
+                to="/restaurantes"
+                className="group rounded-[1.5rem] bg-secondary/55 p-5 transition-all hover:bg-secondary/75"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-card text-primary shadow-soft">
+                    <UtensilsCrossed className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold">Restaurantes</div>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Descubra sabores locais, frutos do mar e lugares especiais para comer bem em Aracaju.
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {user.isOrganizer && (
         <div id="meus-eventos">
