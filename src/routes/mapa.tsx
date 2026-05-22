@@ -4,7 +4,7 @@ import { EventMapSection } from "@/components/site/EventMapSection";
 
 export const Route = createFileRoute("/mapa")({
   component: MapPage,
-  head: () => ({ meta: [{ title: "Mapa de Aracaju - Eventos próximos" }] }),
+  head: () => ({ meta: [{ title: "Cult+ - Mapa" }] }),
 });
 
 function MapPage() {

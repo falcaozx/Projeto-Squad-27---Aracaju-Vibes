@@ -13,7 +13,7 @@ export const Route = createFileRoute("/pontos-turisticos")({
   component: AttractionsPage,
   head: () => ({
     meta: [
-      { title: "Pontos Turísticos de Aracaju — Arcos da Orla, Oceanário e mais" },
+      { title: "Cult+ - Pontos Turísticos" },
       { name: "description", content: "Os pontos turísticos imperdíveis de Aracaju com horários, valores e como chegar." },
     ],
   }),

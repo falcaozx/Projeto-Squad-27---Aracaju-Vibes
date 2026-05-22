@@ -7,7 +7,7 @@ export const Route = createFileRoute("/criador-eventos")({
   component: EventCreatorPage,
   head: () => ({
     meta: [
-      { title: "Criador de Eventos - Dashboard do Promotor" },
+      { title: "Cult+ - Criador de Eventos" },
       {
         name: "description",
         content:

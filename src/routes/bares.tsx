@@ -9,7 +9,7 @@ export const Route = createFileRoute("/bares")({
   component: BarsPage,
   head: () => ({
     meta: [
-      { title: "Bares em Aracaju — Música ao vivo e coquetelaria" },
+      { title: "Cult+ - Bares" },
       { name: "description", content: "Os melhores bares de Aracaju, com forró, sertanejo, rock e coquetelaria autoral." },
     ],
   }),

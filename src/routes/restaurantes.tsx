@@ -10,7 +10,7 @@ export const Route = createFileRoute("/restaurantes")({
   component: RestaurantsPage,
   head: () => ({
     meta: [
-      { title: "Restaurantes em Aracaju — Guia Gastronômico" },
+      { title: "Cult+ - Restaurantes" },
       {
         name: "description",
         content:

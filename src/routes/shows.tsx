@@ -16,7 +16,7 @@ export const Route = createFileRoute("/shows")({
   component: ShowsPage,
   head: () => ({
     meta: [
-      { title: "Shows e Eventos em Aracaju - Compre seu ingresso" },
+      { title: "Cult+ - Shows" },
       {
         name: "description",
         content:

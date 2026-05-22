@@ -19,6 +19,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as FavoritosRouteImport } from './routes/favoritos'
 import { Route as CriadorEventosRouteImport } from './routes/criador-eventos'
 import { Route as ContaRouteImport } from './routes/conta'
+import { Route as CadastroOrganizadorRouteImport } from './routes/cadastro-organizador'
 import { Route as BaresRouteImport } from './routes/bares'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CheckoutEventIdRouteImport } from './routes/checkout.$eventId'
@@ -73,6 +74,11 @@ const ContaRoute = ContaRouteImport.update({
   path: '/conta',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CadastroOrganizadorRoute = CadastroOrganizadorRouteImport.update({
+  id: '/cadastro-organizador',
+  path: '/cadastro-organizador',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BaresRoute = BaresRouteImport.update({
   id: '/bares',
   path: '/bares',
@@ -92,6 +98,7 @@ const CheckoutEventIdRoute = CheckoutEventIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bares': typeof BaresRoute
+  '/cadastro-organizador': typeof CadastroOrganizadorRoute
   '/conta': typeof ContaRoute
   '/criador-eventos': typeof CriadorEventosRoute
   '/favoritos': typeof FavoritosRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bares': typeof BaresRoute
+  '/cadastro-organizador': typeof CadastroOrganizadorRoute
   '/conta': typeof ContaRoute
   '/criador-eventos': typeof CriadorEventosRoute
   '/favoritos': typeof FavoritosRoute
@@ -123,6 +131,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bares': typeof BaresRoute
+  '/cadastro-organizador': typeof CadastroOrganizadorRoute
   '/conta': typeof ContaRoute
   '/criador-eventos': typeof CriadorEventosRoute
   '/favoritos': typeof FavoritosRoute
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/bares'
+    | '/cadastro-organizador'
     | '/conta'
     | '/criador-eventos'
     | '/favoritos'
@@ -155,6 +165,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/bares'
+    | '/cadastro-organizador'
     | '/conta'
     | '/criador-eventos'
     | '/favoritos'
@@ -170,6 +181,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/bares'
+    | '/cadastro-organizador'
     | '/conta'
     | '/criador-eventos'
     | '/favoritos'
@@ -186,6 +198,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BaresRoute: typeof BaresRoute
+  CadastroOrganizadorRoute: typeof CadastroOrganizadorRoute
   ContaRoute: typeof ContaRoute
   CriadorEventosRoute: typeof CriadorEventosRoute
   FavoritosRoute: typeof FavoritosRoute
@@ -271,6 +284,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cadastro-organizador': {
+      id: '/cadastro-organizador'
+      path: '/cadastro-organizador'
+      fullPath: '/cadastro-organizador'
+      preLoaderRoute: typeof CadastroOrganizadorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bares': {
       id: '/bares'
       path: '/bares'
@@ -298,6 +318,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BaresRoute: BaresRoute,
+  CadastroOrganizadorRoute: CadastroOrganizadorRoute,
   ContaRoute: ContaRoute,
   CriadorEventosRoute: CriadorEventosRoute,
   FavoritosRoute: FavoritosRoute,

@@ -14,7 +14,7 @@ export const Route = createFileRoute("/login")({
 
 function LoginPage() {
   const navigate = useNavigate();
-  const { signIn, signUp } = useAuth();
+  const { signIn, signUp, startOrganizerSignUp } = useAuth();
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,17 +24,29 @@ function LoginPage() {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    const safeEmail = email || "visitante@aju.com";
+
     if (mode === "login") {
-      signIn({ email: email || "visitante@aju.com", password });
+      signIn({ email: safeEmail, password });
       navigate({ to: "/conta" });
+      return;
+    }
+
+    if (isOrganizer) {
+      startOrganizerSignUp({
+        name: name || "Novo usuário",
+        email: safeEmail,
+        password,
+      });
+      navigate({ to: "/cadastro-organizador" });
       return;
     }
 
     signUp({
       name: name || "Novo usuário",
-      email: email || "visitante@aju.com",
+      email: safeEmail,
       password,
-      isOrganizer,
+      isOrganizer: false,
     });
     navigate({ to: "/conta" });
   };
@@ -133,7 +145,7 @@ function LoginPage() {
                       Sou organizador ou criador de eventos
                     </Label>
                     <p className="text-xs text-muted-foreground">
-                      Se marcar esta opção, sua conta entra no dashboard pessoal e também ganha a área de criação e edição de eventos.
+                      Se marcar esta opção, vamos pedir os dados da sua empresa antes de liberar a área de criação de shows e eventos.
                     </p>
                   </div>
                 </div>
@@ -141,7 +153,11 @@ function LoginPage() {
             )}
 
             <button className="w-full rounded-xl bg-gradient-primary py-3 font-semibold text-primary-foreground shadow-glow">
-              {mode === "login" ? "Entrar no dashboard" : "Criar conta"}
+              {mode === "login"
+                ? "Entrar no dashboard"
+                : isOrganizer
+                  ? "Continuar cadastro"
+                  : "Criar conta"}
             </button>
           </form>
 

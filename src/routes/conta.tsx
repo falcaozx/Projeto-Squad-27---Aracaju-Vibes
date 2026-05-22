@@ -14,7 +14,7 @@ export const Route = createFileRoute("/conta")({
   component: AccountPage,
   head: () => ({
     meta: [
-      { title: "Minha Conta - Aracaju Turismo" },
+      { title: "Cult+ - Minha Conta" },
       {
         name: "description",
         content: "Dashboard do usuário com área pessoal e espaço de organizador para criação e gestão de eventos.",
@@ -84,6 +84,11 @@ function AccountPage() {
                 <p className="mt-2 max-w-2xl text-sm text-white/82">
                   Aqui você acompanha sua área pessoal e, quando aplicável, gerencia eventos criados por você.
                 </p>
+                {user.isOrganizer && user.organizerCompany && (
+                  <p className="mt-3 text-sm text-white/82">
+                    Empresa verificada: {user.organizerCompany.companyName} • CNPJ {user.organizerCompany.cnpj}
+                  </p>
+                )}
               </div>
 
               <div className="flex flex-wrap gap-3">

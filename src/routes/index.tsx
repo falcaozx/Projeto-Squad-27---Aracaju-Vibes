@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Aracaju Turismo - Praias, Cultura e Experiências em Sergipe" },
+      { title: "Cult+ - Início" },
       {
         name: "description",
         content:

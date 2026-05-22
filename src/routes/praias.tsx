@@ -12,7 +12,7 @@ export const Route = createFileRoute("/praias")({
   component: BeachesPage,
   head: () => ({
     meta: [
-      { title: "Praias de Aracaju — Atalaia, Aruana, Mosqueiro e mais" },
+      { title: "Cult+ - Praias" },
       { name: "description", content: "Guia completo das praias de Aracaju com infraestrutura, fotos e dicas para curtir o melhor do litoral sergipano." },
     ],
   }),

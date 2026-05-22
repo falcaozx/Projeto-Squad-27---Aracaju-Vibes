@@ -7,20 +7,44 @@ import {
   type ReactNode,
 } from "react";
 
+export type OrganizerCompany = {
+  companyName: string;
+  cnpj: string;
+  status: "approved";
+};
+
+export type PendingOrganizerSignUp = {
+  name: string;
+  email: string;
+  password: string;
+};
+
 export type AppUser = {
   name: string;
   email: string;
   isOrganizer: boolean;
+  organizerCompany?: OrganizerCompany;
 };
 
 type AuthContextValue = {
   user: AppUser | null;
+  pendingOrganizerSignUp: PendingOrganizerSignUp | null;
   signIn: (payload: { email: string; password: string }) => void;
-  signUp: (payload: { name: string; email: string; password: string; isOrganizer: boolean }) => void;
+  signUp: (payload: {
+    name: string;
+    email: string;
+    password: string;
+    isOrganizer: boolean;
+    organizerCompany?: OrganizerCompany;
+  }) => void;
+  startOrganizerSignUp: (payload: PendingOrganizerSignUp) => void;
+  completeOrganizerSignUp: (payload: OrganizerCompany) => void;
+  clearPendingOrganizerSignUp: () => void;
   signOut: () => void;
 };
 
 const STORAGE_KEY = "aracaju-auth-user";
+const PENDING_ORGANIZER_STORAGE_KEY = "aracaju-auth-pending-organizer";
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
@@ -38,17 +62,27 @@ function getNameFromEmail(email: string) {
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AppUser | null>(null);
+  const [pendingOrganizerSignUp, setPendingOrganizerSignUp] = useState<PendingOrganizerSignUp | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (!stored) return;
+    const storedUser = window.localStorage.getItem(STORAGE_KEY);
+    if (storedUser) {
+      try {
+        setUser(JSON.parse(storedUser) as AppUser);
+      } catch {
+        window.localStorage.removeItem(STORAGE_KEY);
+      }
+    }
+
+    const storedPendingOrganizer = window.sessionStorage.getItem(PENDING_ORGANIZER_STORAGE_KEY);
+    if (!storedPendingOrganizer) return;
 
     try {
-      setUser(JSON.parse(stored) as AppUser);
+      setPendingOrganizerSignUp(JSON.parse(storedPendingOrganizer) as PendingOrganizerSignUp);
     } catch {
-      window.localStorage.removeItem(STORAGE_KEY);
+      window.sessionStorage.removeItem(PENDING_ORGANIZER_STORAGE_KEY);
     }
   }, []);
 
@@ -57,15 +91,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     if (!user) {
       window.localStorage.removeItem(STORAGE_KEY);
+    } else {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if (!pendingOrganizerSignUp) {
+      window.sessionStorage.removeItem(PENDING_ORGANIZER_STORAGE_KEY);
       return;
     }
 
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
-  }, [user]);
+    window.sessionStorage.setItem(PENDING_ORGANIZER_STORAGE_KEY, JSON.stringify(pendingOrganizerSignUp));
+  }, [pendingOrganizerSignUp]);
 
   const value = useMemo<AuthContextValue>(
     () => ({
       user,
+      pendingOrganizerSignUp,
       signIn: ({ email }) => {
         setUser({
           name: getNameFromEmail(email),
@@ -73,16 +118,43 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           isOrganizer: false,
         });
       },
-      signUp: ({ name, email, isOrganizer }) => {
+      signUp: ({ name, email, isOrganizer, organizerCompany }) => {
         setUser({
           name: name.trim() || getNameFromEmail(email),
           email,
           isOrganizer,
+          organizerCompany: isOrganizer ? organizerCompany : undefined,
         });
       },
-      signOut: () => setUser(null),
+      startOrganizerSignUp: ({ name, email, password }) => {
+        setPendingOrganizerSignUp({
+          name: name.trim() || getNameFromEmail(email),
+          email,
+          password,
+        });
+      },
+      completeOrganizerSignUp: ({ companyName, cnpj, status }) => {
+        if (!pendingOrganizerSignUp) return;
+
+        setUser({
+          name: pendingOrganizerSignUp.name.trim() || getNameFromEmail(pendingOrganizerSignUp.email),
+          email: pendingOrganizerSignUp.email,
+          isOrganizer: true,
+          organizerCompany: {
+            companyName: companyName.trim(),
+            cnpj: cnpj.trim(),
+            status,
+          },
+        });
+        setPendingOrganizerSignUp(null);
+      },
+      clearPendingOrganizerSignUp: () => setPendingOrganizerSignUp(null),
+      signOut: () => {
+        setUser(null);
+        setPendingOrganizerSignUp(null);
+      },
     }),
-    [user],
+    [pendingOrganizerSignUp, user],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
