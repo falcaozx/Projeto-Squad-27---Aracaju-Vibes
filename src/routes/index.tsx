@@ -55,7 +55,7 @@ function Index() {
               transition={{ type: "spring", stiffness: 200, damping: 24 }}
               className="max-w-2xl"
             >
-              <span className="inline-flex items-center gap-2 rounded-full glass-strong px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]">
+              <span className="inline-flex items-center gap-2 rounded-full glass-strong px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-black">
                 <Sparkles className="h-3 w-3" /> Capital do Sol
               </span>
               <h1 className="mt-5 text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl">
@@ -78,10 +78,10 @@ function Index() {
                 className="mt-8 flex max-w-xl items-center gap-2 rounded-2xl glass-strong p-2 shadow-glow"
               >
                 <div className="flex flex-1 items-center gap-2 px-3">
-                  <Search className="h-4 w-4 text-white/70" />
+                  <Search className="h-4 w-4 text-black" />
                   <input
                     placeholder="Buscar destinos, praias, restaurantes..."
-                    className="w-full bg-transparent py-2 text-sm text-white outline-none placeholder:text-white/60"
+                    className="w-full bg-transparent py-2 text-sm text-black outline-none placeholder:text-black/70"
                   />
                 </div>
                 <button className="rounded-xl bg-gradient-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-accent transition-all hover:opacity-95 active:scale-95">
@@ -96,7 +96,7 @@ function Index() {
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="inline-flex items-center gap-2 rounded-full glass-strong px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
+                      className="inline-flex items-center gap-2 rounded-full glass-strong px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-white/20"
                     >
                       <Icon className="h-4 w-4" /> {item.label}
                     </Link>
