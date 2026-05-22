@@ -2,8 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": null,
-  "buildCommand": "npm run build && node scripts/vercel-prepare.mjs",
-  "outputDirectory": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/client",
   "routes": [
     {
       "handle": "filesystem"
