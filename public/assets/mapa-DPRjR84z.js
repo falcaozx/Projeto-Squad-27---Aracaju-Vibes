@@ -1,1 +1,0 @@
-import{p as t}from"./index-DZ3eN2oL.js";import{L as o}from"./Layout-sztx6rAm.js";import{E as p}from"./EventMapSection-DoRpOZ4b.js";/* empty css                */import"./badge-piPAkh3N.js";import"./utils-D0-Dlq7-.js";import"./index-kLWxzOQQ.js";function c(){return t.jsx(o,{children:t.jsx(p,{mapOnly:!0,title:"Mapa de Aracaju",description:"Mapa completo"})})}export{c as component};

@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { CalendarClock, Heart, LogOut, MapPin, ShieldCheck, Ticket, UserRound } from "lucide-react";
+import { CalendarClock, Heart, LogOut, ShieldCheck, Ticket, UserRound } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
 import { EventCreatorDashboard } from "@/components/site/creator/EventCreatorDashboard";
 import { Badge } from "@/components/ui/badge";
@@ -106,7 +106,7 @@ function AccountPage() {
             </div>
           </div>
 
-          <div className={`grid gap-4 p-6 ${user.isOrganizer ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
+          <div className="grid gap-4 p-6 md:grid-cols-3">
             <div className="rounded-[1.5rem] bg-secondary/55 p-5">
               <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Ingressos</div>
               <div className="mt-3 flex items-center gap-3">
@@ -133,49 +133,23 @@ function AccountPage() {
               </div>
             </div>
 
-            {user.isOrganizer && (
-              <div className="rounded-[1.5rem] bg-secondary/55 p-5">
-                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Criação</div>
-                <div className="mt-3 flex items-center gap-3">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-card text-primary shadow-soft">
-                    <CalendarClock className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold">{organizerEvents.length}</div>
-                    <div className="text-sm text-muted-foreground">Eventos no painel</div>
+            <div className="rounded-[1.5rem] bg-secondary/55 p-5">
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Criação</div>
+              <div className="mt-3 flex items-center gap-3">
+                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-card text-primary shadow-soft">
+                  <CalendarClock className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-2xl font-bold">{user.isOrganizer ? organizerEvents.length : 0}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {user.isOrganizer ? "Eventos no painel" : "Conta de visitante"}
                   </div>
                 </div>
               </div>
-            )}
+            </div>
           </div>
         </motion.div>
       </section>
-
-      {!user.isOrganizer && (
-        <section className="mx-auto mt-8 max-w-7xl px-4">
-          <div className="rounded-[2rem] bg-card p-6 shadow-soft md:p-8">
-            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-              <div className="max-w-2xl">
-                <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-deep">
-                  <MapPin className="h-3.5 w-3.5" /> Descubra Aracaju
-                </div>
-                <h2 className="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
-                  Se ainda não conhece, venha explorar os pontos turísticos da cidade.
-                </h2>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground md:text-base">
-                  Veja cartões-postais, museus, experiências naturais e os lugares mais queridos por quem visita Aracaju.
-                </p>
-              </div>
-              <Link
-                to="/pontos-turisticos"
-                className="inline-flex items-center justify-center rounded-xl bg-gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft"
-              >
-                Ver pontos turísticos
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
 
       {user.isOrganizer && (
         <div id="meus-eventos">

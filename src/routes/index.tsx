@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import arcosOrlaHero from "../../assests/image copy 3.png";
 import {
   ArrowRight,
   MapPin,
@@ -9,7 +10,6 @@ import {
   UtensilsCrossed,
   Waves,
 } from "lucide-react";
-import arcosOrlaHero from "../../assests/image copy 3.png";
 import { EventMapSection } from "@/components/site/EventMapSection";
 import { Layout } from "@/components/site/Layout";
 import { PlaceCard } from "@/components/site/PlaceCard";
@@ -55,7 +55,7 @@ function Index() {
               transition={{ type: "spring", stiffness: 200, damping: 24 }}
               className="max-w-2xl"
             >
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/86 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-950 shadow-sm">
+              <span className="inline-flex items-center gap-2 rounded-full glass-strong px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]">
                 <Sparkles className="h-3 w-3" /> Capital do Sol
               </span>
               <h1 className="mt-5 text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl">
@@ -66,7 +66,7 @@ function Index() {
                 </span>
                 .
               </h1>
-              <p className="mt-5 max-w-xl text-base text-white/88 md:text-lg">
+              <p className="mt-5 max-w-xl text-base text-white/85 md:text-lg">
                 Roteiros, gastronomia e cultura em um só lugar. As melhores experiências de Sergipe a distância de um clique.
               </p>
 
@@ -75,16 +75,16 @@ function Index() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, type: "spring", stiffness: 240, damping: 22 }}
-                className="mt-8 flex max-w-xl items-center gap-2 rounded-2xl bg-white/88 p-2 text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.18)] backdrop-blur-md"
+                className="mt-8 flex max-w-xl items-center gap-2 rounded-2xl glass-strong p-2 shadow-glow"
               >
                 <div className="flex flex-1 items-center gap-2 px-3">
-                  <Search className="h-4 w-4 text-slate-700" />
+                  <Search className="h-4 w-4 text-white/70" />
                   <input
                     placeholder="Buscar destinos, praias, restaurantes..."
-                    className="w-full bg-transparent py-2 text-sm text-slate-950 outline-none placeholder:text-slate-500"
+                    className="w-full bg-transparent py-2 text-sm text-white outline-none placeholder:text-white/60"
                   />
                 </div>
-                <button className="rounded-xl bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-95 active:scale-95">
+                <button className="rounded-xl bg-gradient-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-accent transition-all hover:opacity-95 active:scale-95">
                   Explorar
                 </button>
               </motion.form>
@@ -96,7 +96,7 @@ function Index() {
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="inline-flex items-center gap-2 rounded-full bg-white/86 px-4 py-2 text-sm font-medium text-slate-950 transition-colors hover:bg-white"
+                      className="inline-flex items-center gap-2 rounded-full glass-strong px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
                     >
                       <Icon className="h-4 w-4" /> {item.label}
                     </Link>
