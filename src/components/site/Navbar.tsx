@@ -31,7 +31,7 @@ export function Navbar() {
               <MapPin className="h-5 w-5 text-primary-foreground" />
             </div>
             <div className="leading-tight">
-              <div className="text-sm font-bold tracking-tight">Aracaju</div>
+              <div className="text-sm font-bold tracking-tight">Cult+</div>
               <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                 Turismo
               </div>
