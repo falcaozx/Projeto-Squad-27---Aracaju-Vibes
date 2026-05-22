@@ -6,7 +6,6 @@ import {
   MapPin,
   Search,
   Sparkles,
-  Ticket,
   UtensilsCrossed,
   Waves,
 } from "lucide-react";
@@ -33,7 +32,6 @@ const quick = [
   { to: "/praias", label: "Praias", icon: Waves },
   { to: "/restaurantes", label: "Gastronomia", icon: UtensilsCrossed },
   { to: "/pontos-turisticos", label: "Pontos turísticos", icon: MapPin },
-  { to: "/shows", label: "Shows", icon: Ticket },
 ] as const;
 
 function Index() {
@@ -75,9 +73,9 @@ function Index() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, type: "spring", stiffness: 240, damping: 22 }}
-                className="mt-8 flex max-w-xl items-center gap-2 rounded-2xl glass-strong p-2 shadow-glow"
+                className="mt-8 flex w-full max-w-[34rem] items-center gap-2 rounded-2xl glass-strong p-2 shadow-glow md:w-fit"
               >
-                <div className="flex flex-1 items-center gap-2 px-3">
+                <div className="flex min-w-0 flex-1 items-center gap-2 px-3 md:w-[19rem] md:flex-none">
                   <Search className="h-4 w-4 text-black" />
                   <input
                     placeholder="Buscar destinos, praias, restaurantes..."

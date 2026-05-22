@@ -15,6 +15,10 @@ export const Route = createFileRoute("/bares")({
   }),
 });
 
+function formatBarHours(hours: string) {
+  return hours.replaceAll("; ", " • ");
+}
+
 function BarsPage() {
   return (
     <Layout>
@@ -30,11 +34,11 @@ function BarsPage() {
             key={bar.id}
             id={bar.id}
             title={bar.name}
-            subtitle={bar.cuisine}
+            subtitle={`${bar.cuisine} • ${bar.price}`}
             image={bar.image}
             rating={bar.rating}
             address={bar.address}
-            hours={bar.hours}
+            hours={formatBarHours(bar.hours)}
             badge={bar.liveMusic ? "Música ao vivo" : "Coquetelaria"}
             coords={bar.coords}
           />

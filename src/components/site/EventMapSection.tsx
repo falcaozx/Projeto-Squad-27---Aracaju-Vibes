@@ -430,7 +430,7 @@ export function EventMapSection({
                         whileHover={{ y: -2 }}
                         className={`w-full rounded-[1.6rem] border p-4 text-left shadow-soft transition-all ${
                           active
-                            ? "border-primary/30 bg-secondary/65 shadow-glow"
+                            ? "border-primary/30 bg-secondary/65"
                             : "border-border/70 bg-surface hover:border-primary/20"
                         }`}
                       >
