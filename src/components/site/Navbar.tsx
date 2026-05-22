@@ -46,16 +46,18 @@ export function Navbar() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="relative rounded-xl px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+                    className={`relative rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
+                      active ? "text-foreground" : "text-foreground/80 hover:text-foreground"
+                    }`}
                   >
                     {active && (
                       <motion.span
                         layoutId="nav-pill"
-                        className="absolute inset-0 -z-10 rounded-xl bg-primary shadow-glow ring-1 ring-primary-glow/35"
+                        className="absolute inset-0 -z-10 rounded-xl bg-white/92 ring-1 ring-border/70 shadow-[0_10px_24px_rgba(15,23,42,0.10)]"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
-                    <span className={active ? "text-white opacity-100" : ""}>{link.label}</span>
+                    <span className={active ? "opacity-100" : ""}>{link.label}</span>
                   </Link>
                 </li>
               );

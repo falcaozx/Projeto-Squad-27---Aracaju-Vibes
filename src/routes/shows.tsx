@@ -107,7 +107,7 @@ function ShowsPage() {
                 <Link
                   to="/checkout/$eventId"
                   params={{ eventId: event.id }}
-                  className="flex items-center justify-center gap-2 rounded-xl bg-gradient-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition-shadow hover:shadow-glow"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-gradient-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition-all hover:opacity-95"
                 >
                   <Ticket className="h-4 w-4" /> Comprar ingresso
                 </Link>
