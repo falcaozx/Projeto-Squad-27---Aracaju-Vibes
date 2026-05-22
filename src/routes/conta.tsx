@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/site/PageHeader";
 import { useAuth } from "@/lib/auth";
 import { useEventManager } from "@/lib/event-manager";
+import { beaches, restaurants } from "@/data";
 
 export const Route = createFileRoute("/conta")({
   component: AccountPage,
@@ -47,6 +48,8 @@ function AccountPage() {
   }
 
   const organizerEvents = user.isOrganizer ? events : [];
+  const featuredBeach = beaches[0];
+  const featuredRestaurant = restaurants[1] ?? restaurants[0];
 
   return (
     <Layout>
@@ -169,35 +172,57 @@ function AccountPage() {
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               <Link
                 to="/praias"
-                className="group rounded-[1.5rem] bg-secondary/55 p-5 transition-all hover:bg-secondary/75"
+                className="group overflow-hidden rounded-[1.5rem] bg-secondary/55 transition-all hover:bg-secondary/75"
               >
-                <div className="flex items-start gap-4">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-card text-primary shadow-soft">
-                    <Waves className="h-5 w-5" />
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={featuredBeach.image}
+                    alt={featuredBeach.name}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-950">
+                    <Waves className="h-3.5 w-3.5" /> Praias
                   </div>
-                  <div>
-                    <div className="text-lg font-bold">Praias de Aracaju</div>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      Veja opções para relaxar, caminhar na orla e aproveitar o litoral sergipano.
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <div className="text-lg font-bold">{featuredBeach.name}</div>
+                    <p className="mt-1 text-sm text-white/85">
+                      Caminhe pela orla, aproveite o mar e descubra os cenários mais bonitos de Aracaju.
                     </p>
                   </div>
+                </div>
+                <div className="p-5">
+                  <span className="inline-flex items-center text-sm font-semibold text-primary">
+                    Explorar praias
+                  </span>
                 </div>
               </Link>
 
               <Link
                 to="/restaurantes"
-                className="group rounded-[1.5rem] bg-secondary/55 p-5 transition-all hover:bg-secondary/75"
+                className="group overflow-hidden rounded-[1.5rem] bg-secondary/55 transition-all hover:bg-secondary/75"
               >
-                <div className="flex items-start gap-4">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-card text-primary shadow-soft">
-                    <UtensilsCrossed className="h-5 w-5" />
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={featuredRestaurant.image}
+                    alt={featuredRestaurant.name}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-950">
+                    <UtensilsCrossed className="h-3.5 w-3.5" /> Restaurantes
                   </div>
-                  <div>
-                    <div className="text-lg font-bold">Restaurantes</div>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      Descubra sabores locais, frutos do mar e lugares especiais para comer bem em Aracaju.
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <div className="text-lg font-bold">{featuredRestaurant.name}</div>
+                    <p className="mt-1 text-sm text-white/85">
+                      Descubra sabores locais, ambientes especiais e experiências gastronômicas para aproveitar a cidade.
                     </p>
                   </div>
+                </div>
+                <div className="p-5">
+                  <span className="inline-flex items-center text-sm font-semibold text-primary">
+                    Ver restaurantes
+                  </span>
                 </div>
               </Link>
             </div>
