@@ -52,9 +52,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aracaju Turismo — Praias, Cultura e Experiências em Sergipe" },
+      { title: "Cult+ — Praias, Cultura e Experiências em Sergipe" },
       { name: "description", content: "Descubra o melhor de Aracaju: praias, restaurantes, bares, pontos turísticos e shows. Sua viagem perfeita começa aqui." },
-      { property: "og:title", content: "Aracaju Turismo" },
+      { property: "og:title", content: "Cult+" },
       { property: "og:description", content: "Praias, gastronomia e cultura em Sergipe." },
       { property: "og:type", content: "website" },
     ],
